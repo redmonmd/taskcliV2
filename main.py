@@ -14,7 +14,7 @@ class Task:
         self.created = created
         self.last_updated = last_updated
 
-class taskerCLI(cmd.Cmd):
+class TestCLI(cmd.Cmd):
     prompt = 'tasker-cli-> '
     Intro = 'Welcome to tasker, Type help or ? to list commands'
 
@@ -22,4 +22,5 @@ class taskerCLI(cmd.Cmd):
         """print line test"""
         print("TEST TEST TEST")
 
-    pass
+    if __name__ == '__main__':
+        TestCLI().cmdloop()
