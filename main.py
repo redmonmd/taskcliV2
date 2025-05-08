@@ -49,9 +49,12 @@ class TaskCLI(cmd.Cmd):
         """print line test"""
         print("TEST TEST TEST")
 
-    def do_add(self, ntask):
+    def do_add(self, ntask=(input())):
         """add a task"""
-        ntask = Task()
+        if ntask != "":
+            ntask = Task()
+        else:
+            pass
         ntask.task = input("What is your task?\n")
         ntask.description = input("Enter a breif description of the task: ")
         ntask.status = "TODO"
@@ -65,6 +68,8 @@ class TaskCLI(cmd.Cmd):
         for taskn in pickle_loader('./taskslist.pkl'):
             for n in taskn:
                 print(n.show())
+
+    def do_update(self, ):
 
 if __name__ == '__main__':
     TaskCLI().cmdloop()
