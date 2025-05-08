@@ -70,10 +70,10 @@ class TaskCLI(cmd.Cmd):
 
     def do_list(self, line):
         """list tasks"""
-        for taskn in pickle_loader('./taskslist.pkl'):
-            for n in taskn:
-                print('tasks: {}\n tid: {}'.format(n.show(), n.gettid()))
-        expand('./taskslist.pkl')
+        for entry in pickle_loader('./taskslist.pkl'):
+            for taskitem in entry.values():
+                print('Task: {}\n\tDescription: {}\n\tStatus: {}\n\tCreated: {}\n\tLast Updated: {}'.format(taskitem.get('task'), taskitem.get('description'), taskitem.get('status'), taskitem.get('created'), taskitem.get('last_updated')))
+
 
 #     def do_update(self, ):
 
