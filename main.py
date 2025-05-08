@@ -4,7 +4,6 @@
 #       Let me know if you see any improvements fit.
 
 TASKLST = []
-TASKDICT = {}
 
 import cmd
 import datetime
