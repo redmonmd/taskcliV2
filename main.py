@@ -3,6 +3,10 @@
 # Goal: This project is a learning idea based on roadmap.sh Task Tracker CLI project idea
 #       Let me know if you see any improvements fit.
 
+# TODO
+# - [ ] REDO SAVES
+# - [ ] map out dataflow
+# - [ ] TBD
 import cmd
 import datetime
 import os
