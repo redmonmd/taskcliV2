@@ -84,7 +84,7 @@ class TaskCLI(cmd.Cmd):
             except:
                 return print("Not a task, try again")
                 pass
-        updatecmd = cmd.PROMPT("{}\n\t 1. In Progress \n\t 2. Finished \n\t 3. Delete")
+        updatecmd = input("{}\n\t 1. In Progress \n\t 2. Finished \n\t 3. Delete\n".format(args))
         match updatecmd:
             case "1":
                 tmpupdatedict = tmpupdatedict.update({"Status": "In Progress"})
