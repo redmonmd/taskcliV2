@@ -1,4 +1,4 @@
-./*.pkl
+./taskslist.pkl
 ./.venv/
 *.xml
 ./.idea/
