@@ -33,6 +33,9 @@ def pickle_loader(filename):
             except EOFError:
                 break
 
+def resave_object(object, filename):
+    for entry in pickle_loader(filename):
+        
 
 class TaskCLI(cmd.Cmd):
     Intro = "Welcome to tasker, Type help or ? to list commands \n"
