@@ -63,7 +63,20 @@ class TaskCLI(cmd.Cmd):
                 print('Task: {}\n\tDescription: {}\n\tStatus: {}\n\tCreated: {}\n\tLast Updated: {}'.format(taskitem.get('task'), taskitem.get('description'), taskitem.get('status'), taskitem.get('created'), taskitem.get('last_updated')))
 
 
-#     def do_update(self, ):
+    def do_update(self, args, line):
+        """update a task"""
+        for entry in pickle_loader('./taskslist.pkl'):
+            try:
+                if args == entry.keys():
+                    tmpupdatedict = entry.copy()
+            except:
+                return print("Not a task, try again")
+                pass
+        updatecmd = cmd.PROMPT("{}\n\t 1. In Progress \n\t 2. Finished \n\t 3. Delete")
+        match updatecmd:
+            case "1":
+                tmpupdatedict = tmpupdatedict.update({"Status": "In Progress"})
+
 
 if __name__ == '__main__':
     TaskCLI().cmdloop()
