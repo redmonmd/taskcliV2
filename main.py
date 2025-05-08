@@ -66,7 +66,7 @@ class TaskCLI(cmd.Cmd):
         ntask.created = datetime.datetime.now()
         ntask.last_updated = datetime.datetime.now()
         ntask.tid = id(ntask.task)
-        Task.save_object(ntask, TASKLST)
+        ntask.save_object()
 
     def do_list(self, line):
         """list tasks"""
