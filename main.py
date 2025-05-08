@@ -27,8 +27,6 @@ class Task:
         with open('./taskslist.pkl', 'wb') as outp:
             pickle.dump(tasksref, outp)
 
-
-
 def pickle_loader(filename):
     with open(filename, 'rb') as inp:
         while True:
