@@ -38,6 +38,11 @@ def pickle_loader(filename):
             except EOFError:
                 break
 
+def expand(fname):
+    for taskitem in pickle_loader(fname):
+        for n in taskitem:
+            TASKDICT.update({n.tid(): n})
+
 class TaskCLI(cmd.Cmd):
     Intro = "Welcome to tasker, Type help or ? to list commands \n"
     prompt = "tasker-cli-> "
