@@ -75,7 +75,7 @@ class TaskCLI(cmd.Cmd):
                 print('Task: {}\n\tDescription: {}\n\tStatus: {}\n\tCreated: {}\n\tLast Updated: {}'.format(taskitem.get('task'), taskitem.get('description'), taskitem.get('status'), taskitem.get('created'), taskitem.get('last_updated')))
 
 
-    def do_update(self, args, line):
+    def do_update(self, args):
         """update a task"""
         for entry in pickle_loader('./taskslist.pkl'):
             try:
