@@ -26,7 +26,7 @@ class Task:
         taskdict = {'task': self.task, 'description': self.description, 'tid': self.tid, 'status': self.status, 'created': self.created, 'last_updated': self.last_updated}
         tasksref = {self.task: taskdict}
         with open('./taskslist.pkl', 'wb') as outp:
-            pickle.dump(tasklist, outp, pickle.HIGHEST_PROTOCOL)
+            pickle.dump(tasksref, outp)
 
 
 
