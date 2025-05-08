@@ -60,7 +60,7 @@ class TaskCLI(cmd.Cmd):
             ntask = Task()
         else:
             pass
-        ntask.task = input("What is your task?\n")
+        ntask.task = input("What is your task: ")
         ntask.description = input("Enter a breif description of the task: ")
         ntask.status = "TODO"
         ntask.created = datetime.datetime.now()
