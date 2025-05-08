@@ -54,7 +54,7 @@ class TaskCLI(cmd.Cmd):
         """print line test"""
         print("TEST TEST TEST")
 
-    def do_add(self, ntask=(input())):
+    def do_add(self, line):
         """add a task"""
         ntask = Task()
         ntask.task = input("What is your task: ")
