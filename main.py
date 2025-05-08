@@ -87,7 +87,20 @@ class TaskCLI(cmd.Cmd):
         updatecmd = input("{}\n\t 1. In Progress \n\t 2. Finished \n\t 3. Delete\n".format(args))
         match updatecmd:
             case "1":
-                tmpupdatedict = tmpupdatedict.update({"Status": "In Progress"})
+                resave_object("status", "In Progress",args ,entry, './taskslist.pkl')
+                return print("Task updated to: In Progress")
+            case "2":
+                resave_object("status", "Finished", args, entry, './taskslist.pkl')
+                return print("Task updated to: Finished")
+            case "3":
+                with open("./taskslist.pkl", 'wb') as outp:
+                    for obj in outp:
+                        if obj == args:
+                            outp.pop(obj)
+                return print("Task updated to: Deleted")
+            case _:
+                return print("Not an option, try again")
+        return
 
 
 if __name__ == '__main__':
