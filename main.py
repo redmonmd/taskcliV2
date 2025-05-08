@@ -72,7 +72,8 @@ class TaskCLI(cmd.Cmd):
         """list tasks"""
         for taskn in pickle_loader('./taskslist.pkl'):
             for n in taskn:
-                print(n.show())
+                print('tasks: {}\n tid: {}'.format(n.show(), n.gettid()))
+        expand('./taskslist.pkl')
 
     def do_update(self, ):
 
