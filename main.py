@@ -75,7 +75,7 @@ class TaskCLI(cmd.Cmd):
                 print('tasks: {}\n tid: {}'.format(n.show(), n.gettid()))
         expand('./taskslist.pkl')
 
-    def do_update(self, ):
+#     def do_update(self, ):
 
 if __name__ == '__main__':
     TaskCLI().cmdloop()
