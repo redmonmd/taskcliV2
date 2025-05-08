@@ -27,8 +27,7 @@ class Task:
         with open('./taskslist.pkl', 'wb') as outp:
             pickle.dump(tasklist, outp, pickle.HIGHEST_PROTOCOL)
 
-    def show(self):
-        print('\nTask: {}\n Description: {}\n Status: {}\n Created: {}\n Last Updated: {}\n'.format(self.task, self.description, self.status, self.created, self.last_updated))
+
 
 def pickle_loader(filename):
     with open(filename, 'rb') as inp:
