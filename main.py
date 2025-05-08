@@ -56,10 +56,7 @@ class TaskCLI(cmd.Cmd):
 
     def do_add(self, ntask=(input())):
         """add a task"""
-        if ntask != "":
-            ntask = Task()
-        else:
-            pass
+        ntask = Task()
         ntask.task = input("What is your task: ")
         ntask.description = input("Enter a breif description of the task: ")
         ntask.status = "TODO"
