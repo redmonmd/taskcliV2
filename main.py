@@ -11,7 +11,6 @@ TOSAVE = dict()
 # - [ ] TBD
 import cmd
 import datetime
-import os
 import pickle
 from dataclasses import dataclass
 
