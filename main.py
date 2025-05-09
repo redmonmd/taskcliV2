@@ -87,6 +87,7 @@ class TaskCLI(cmd.Cmd):
         match updatecmd:
             case "1":
                 resave_object(taskref=args, key="status", updated_val="In Progress")
+                return None
             case "2":
                  resave_object(taskref=args, key="status", updated_val="In Progress")
             case "3":
