@@ -90,9 +90,7 @@ class TaskCLI(cmd.Cmd):
             case "3":
                  TOSAVE.pop(args)
             case _:
-                return print("Not an option, try again")
-        return
-
+                 print("not an option")
 
 if __name__ == '__main__':
     TaskCLI().cmdloop()
