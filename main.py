@@ -92,7 +92,8 @@ class TaskCLI(cmd.Cmd):
                  resave_object(taskref=args, key="status", updated_val="Finished")
                  return None
             case "3":
-                 TOSAVE.pop(args)
+                 savedict.pop(args)
+                 return None
             case _:
                  print("not an option")
 
