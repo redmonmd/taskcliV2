@@ -39,11 +39,8 @@ def pickle_loader(filename):
             except EOFError:
                 break
 
-def resave_object(key, chng, object, dictofobjects, filename):
-    for dictofobjects in pickle_loader(filename):
-        for object in dictofobjects:
-            tmpobject = object.update({key: chng})
-            dictofobjects.update({object:tmpobject})
+def resave_object(taskref: dict, key: str, updated_val: str):
+    TOSAVE.update({key: updated_val})
 
 
 class TaskCLI(cmd.Cmd):
