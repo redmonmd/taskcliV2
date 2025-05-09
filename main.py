@@ -88,11 +88,7 @@ class TaskCLI(cmd.Cmd):
             case "2":
                  resave_object(taskref=args, key="status", updated_val="In Progress")
             case "3":
-                with open("./taskslist.pkl", 'wb') as outp:
-                    for obj in outp:
-                        if obj == args:
-                            outp.pop(obj)
-                return print("Task updated to: Deleted")
+                 TOSAVE.pop(args)
             case _:
                 return print("Not an option, try again")
         return
