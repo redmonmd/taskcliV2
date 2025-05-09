@@ -89,7 +89,8 @@ class TaskCLI(cmd.Cmd):
                 resave_object(taskref=args, key="status", updated_val="In Progress")
                 return None
             case "2":
-                 resave_object(taskref=args, key="status", updated_val="In Progress")
+                 resave_object(taskref=args, key="status", updated_val="Finished")
+                 return None
             case "3":
                  TOSAVE.pop(args)
             case _:
