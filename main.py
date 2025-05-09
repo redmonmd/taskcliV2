@@ -84,8 +84,7 @@ class TaskCLI(cmd.Cmd):
         updatecmd = input("{}\n\t 1. In Progress \n\t 2. Finished \n\t 3. Delete\n".format(args))
         match updatecmd:
             case "1":
-                resave_object("status", "In Progress",args ,entry, './taskslist.pkl')
-                return print("Task updated to: In Progress")
+                resave_object(taskref=args, key="status", updated_val="In Progress")
             case "2":
                 resave_object("status", "Finished", args, entry, './taskslist.pkl')
                 return print("Task updated to: Finished")
