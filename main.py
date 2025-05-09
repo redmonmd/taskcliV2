@@ -96,6 +96,7 @@ class TaskCLI(cmd.Cmd):
                  return None
             case _:
                  print("not an option")
+                 return None
 
 if __name__ == '__main__':
     TaskCLI().cmdloop()
