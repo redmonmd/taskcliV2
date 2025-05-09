@@ -86,8 +86,7 @@ class TaskCLI(cmd.Cmd):
             case "1":
                 resave_object(taskref=args, key="status", updated_val="In Progress")
             case "2":
-                resave_object("status", "Finished", args, entry, './taskslist.pkl')
-                return print("Task updated to: Finished")
+                 resave_object(taskref=args, key="status", updated_val="In Progress")
             case "3":
                 with open("./taskslist.pkl", 'wb') as outp:
                     for obj in outp:
