@@ -82,14 +82,8 @@ class TaskCLI(cmd.Cmd):
 
     def do_update(self, args: dict, savedict=TOSAVE):
         """update a task"""
-        for entry in pickle_loader('./taskslist.pkl'):
-            try:
-                if args == entry.keys():
-                    tmpupdatedict = entry.copy()
-            except:
-                return print("Not a task, try again")
-                pass
-        updatecmd = input("{}\n\t 1. In Progress \n\t 2. Finished \n\t 3. Delete\n".format(args))
+
+        updatecmd = input("{}\n\t 1. In Progress \n\t 2. Finished \n\t 3. Delete\n\t >>".format(args))
         match updatecmd:
             case "1":
                 resave_object(taskref=args, key="status", updated_val="In Progress")
