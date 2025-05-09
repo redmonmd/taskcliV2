@@ -3,6 +3,8 @@
 # Goal: This project is a learning idea based on roadmap.sh Task Tracker CLI project idea
 #       Let me know if you see any improvements fit.
 
+TOSAVE = dict()
+
 # TODO
 # - [ ] REDO SAVES
 # - [ ] map out dataflow
