@@ -41,8 +41,14 @@ def pickle_loader(filename):
             except EOFError:
                 break
 
-def resave_object(taskref: dict, key: str, updated_val: str):
-    TOSAVE.update({key: updated_val})
+def resave_object(savedict: dict=TOSAVE, taskref: dict=TOSAVE.keys(), key: str=TOSAVE.keys(), updated_val: str=TOSAVE.values()) -> None:
+    """
+
+    :type key: str
+    """
+    savedict[taskref].update({key: updated_val})
+    return None
+
 
 
 class TaskCLI(cmd.Cmd):
