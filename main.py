@@ -6,9 +6,9 @@
 TOSAVE = dict()
 
 # TODO
-# - [ ] REDO SAVES
-# - [ ] map out dataflow
-# - [ ] TBD
+# - [X] REDO SAVES
+# - [X] map out dataflow
+# - [ ] Fix long term saves
 import cmd
 import datetime
 import os
