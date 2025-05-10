@@ -11,10 +11,8 @@ TOSAVE = dict()
 # - [ ] Fix long term saves
 import cmd
 import datetime
-import os
 import pickle
 from dataclasses import dataclass
-from unittest import case
 
 
 @dataclass
@@ -41,8 +39,14 @@ def pickle_loader(filename):
             except EOFError:
                 break
 
-def resave_object(taskref: dict, key: str, updated_val: str):
-    TOSAVE.update({key: updated_val})
+def resave_object(savedict: dict=TOSAVE, taskref: dict=TOSAVE.keys(), key: str=TOSAVE.keys(), updated_val: str=TOSAVE.values()) -> None:
+    """
+
+    :type key: str
+    """
+    savedict[taskref].update({key: updated_val})
+    return None
+
 
 
 class TaskCLI(cmd.Cmd):
@@ -74,25 +78,23 @@ class TaskCLI(cmd.Cmd):
             print('Task: {}\n\tDescription: {}\n\tStatus: {}\n\tCreated: {}\n\tLast Updated: {}'.format(taskitem.get('task'), taskitem.get('description'), taskitem.get('status'), taskitem.get('created'), taskitem.get('last_updated')))
 
 
-    def do_update(self, args):
+    def do_update(self, args: dict, savedict=TOSAVE):
         """update a task"""
-        for entry in pickle_loader('./taskslist.pkl'):
-            try:
-                if args == entry.keys():
-                    tmpupdatedict = entry.copy()
-            except:
-                return print("Not a task, try again")
-                pass
-        updatecmd = input("{}\n\t 1. In Progress \n\t 2. Finished \n\t 3. Delete\n".format(args))
+
+        updatecmd = input("{}\n\t 1. In Progress \n\t 2. Finished \n\t 3. Delete\n\t >>".format(args))
         match updatecmd:
             case "1":
                 resave_object(taskref=args, key="status", updated_val="In Progress")
+                return None
             case "2":
-                 resave_object(taskref=args, key="status", updated_val="In Progress")
+                 resave_object(taskref=args, key="status", updated_val="Finished")
+                 return None
             case "3":
-                 TOSAVE.pop(args)
+                 savedict.pop(args)
+                 return None
             case _:
                  print("not an option")
+                 return None
 
 if __name__ == '__main__':
     TaskCLI().cmdloop()
